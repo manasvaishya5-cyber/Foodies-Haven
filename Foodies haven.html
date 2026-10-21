@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foodies Haven Online Restaurant</title>
+ 
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#fffaf5;
+      color:#222;
+    }
+
+    header{
+      width:100%;
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:1000;
+      background:#111;
+      padding:15px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo{
+      color:#ffb703;
+      font-size:50px;
+      font-weight:800;
+	  margin-top:-10px;
+    }
+
+    nav a{
+      color:#fff;
+      text-decoration:none;
+      margin-left:25px;
+      font-size:16px;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:#ffb703;
+    }
+
+    .hero{
+      width:100%;
+      height:100vh;
+      background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('../IMG/back.avif');
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:20px;
+    }
+
+    .hero-content h1{
+      color:#fff;
+      font-size:65px;
+      margin-bottom:20px;
+    }
+
+    .hero-content p{
+      color:#f1f1f1;
+      font-size:20px;
+      margin-bottom:30px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 35px;
+      background:#ffb703;
+      color:#111;
+      text-decoration:none;
+      border-radius:30px;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:#fff;
+      transform:translateY(-3px);
+    }
+
+    section{
+      padding:90px 8%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .section-title h2{
+      font-size:40px;
+      color:#111;
+      margin-bottom:10px;
+    }
+
+    .section-title p{
+      color:#666;
+    }
+
+    .about{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:40px;
+      align-items:center;
+    }
+
+    .about img{
+      width:100%;
+      border-radius:20px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.2);
+    }
+
+    .about-text h3{
+      font-size:35px;
+      margin-bottom:20px;
+    }
+
+    .about-text p{
+      line-height:1.8;
+      color:#555;
+      margin-bottom:20px;
+    }
+
+    .menu-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .menu-card{
+      background:#fff;
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+      transition:0.3s;
+    }
+
+    .menu-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .menu-card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .menu-content{
+      padding:20px;
+    }
+
+    .menu-content h3{
+      margin-bottom:10px;
+    }
+
+    .price{
+      color:#ff7b00;
+      font-weight:700;
+      margin-top:10px;
+      display:block;
+      font-size:18px;
+    }
+
+    .services{
+      background:#111;
+      color:#fff;
+    }
+
+    .service-boxes{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .service-box{
+      background:#1d1d1d;
+      padding:35px 25px;
+      text-align:center;
+      border-radius:20px;
+      transition:0.3s;
+    }
+
+    .service-box:hover{
+      background:#ffb703;
+      color:#111;
+    }
+
+    .service-box h3{
+      margin:20px 0 10px;
+      font-size:24px;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+    }
+
+    .gallery img{
+      width:100%;
+      height:250px;
+      object-fit:cover;
+      border-radius:20px;
+      transition:0.3s;
+    }
+
+    .gallery img:hover{
+      transform:scale(1.05);
+    }
+
+    .contact-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:40px;
+      align-items:center;
+    }
+
+    .contact-form{
+      background:#fff;
+      padding:30px;
+      border-radius:20px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .contact-form input,
+    .contact-form textarea{
+      width:100%;
+      padding:15px;
+      margin-bottom:20px;
+      border:none;
+      background:#f3f3f3;
+      border-radius:10px;
+      outline:none;
+    }
+
+    .contact-form button{
+      width:100%;
+      padding:15px;
+      border:none;
+      background:#ffb703;
+      font-size:18px;
+      font-weight:600;
+      border-radius:10px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .contact-form button:hover{
+      background:#111;
+      color:#fff;
+    }
+
+    footer{
+      background:#111;
+      color:#fff;
+      text-align:center;
+      padding:20px;
+    }
+
+    @media(max-width:900px){
+      .hero-content h1{
+        font-size:45px;
+      }
+
+      nav5
+        display:none;
+      }
+    }
+
+    @media(max-width:600px){
+      .hero-content h1{
+        font-size:35px;
+      }
+
+      .hero-content p{
+        font-size:16px;
+      }
+
+      section{
+        padding:70px 5%;
+      }
+    }
+	.log{
+	width:100px;
+	hight:100px;
+	margin-left:-1325px;
+	}
+	.mu{
+	color:black;
+	text-decoration:none;
+	}
+	.mue{
+	color:white;
+	text-decoration:none;
+	}
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo"> Foodies Haven</div>
+<img class="log" src="../IMG/fo.jpg">
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Welcome To Foodies Haven a online food shop</h1>
+      <p>Enjoy delicious food with the best quality and amazing atmosphere.</p>
+      <a href="#menu" class="btn">Explore Menu</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-title">
+      <h2><a href="../HTML/about.html" class="mu">About Us</a></h2>
+      <p>Best restaurant in your city</p>
+    </div>
+
+    <div class="about">
+      <img src="../IMG/re.avif" alt="Restaurant">
+
+      <div class="about-text">
+        <h3>We Serve Quality Food</h3>
+        <p>
+          Foodies Haven Restaurant offers delicious meals prepared by expert chefs.
+          We provide a perfect dining experience with fresh ingredients,
+          fast service, and a beautiful atmosphere for family and friends.
+        </p>
+
+        <a href="#contact" class="btn">Book Table</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="section-title">
+      <h2><a href="../HTML/menu.html" class="mu">Our Menu</a></h2>
+      <p>Popular dishes loved by customers</p>
+    </div>
+
+    <div class="menu-container">
+
+      <div class="menu-card">
+        <img src="../IMG/rs.avif" alt="Pizza">
+        <div class="menu-content">
+          <h3>Italian Pizza</h3>
+          <p>Cheesy pizza topped with fresh vegetables and herbs.</p>
+          <span class="price">₹299</span>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <img src="../IMG/bg.avif" alt="Burger">
+        <div class="menu-content">
+          <h3>Chicken Burger</h3>
+          <p>Loaded burger with crispy chicken and fresh toppings.</p>
+          <span class="price">₹199</span>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <img src="../IMG/ch.avif" alt="Pasta">
+        <div class="menu-content">
+          <h3>Creamy Pasta</h3>
+          <p>Rich creamy pasta with special herbs and cheese.</p>
+          <span class="price">₹249</span>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <img src="../IMG/cv.avif" alt="Steak">
+        <div class="menu-content">
+          <h3>Grilled Steak</h3>
+          <p>Juicy grilled steak served with delicious sauce.</p>
+          <span class="price">₹499</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="section-title">
+      <h2 style="color:white;">Our Services</h2>
+      <p>We provide the best experience</p>
+    </div>
+
+    <div class="service-boxes">
+
+      <div class="service-box">
+        <h3><a href="../HTML/dilevery.html" class="mue">Fast Delivery</a></h3>
+        <p>Quick and fresh food delivery at your doorstep.</p>
+      </div>
+
+      <div class="service-box">
+        <h3><a href="../HTML/onlineservice.html" class="mue">Online Booking</a></h3>
+        <p>Reserve your table online easily and quickly.</p>
+      </div>
+
+      <div class="service-box">
+        <h3><a href="../HTML/qualityfood.html" class="mue">Quality Food</a></h3>
+        <p>Fresh ingredients and hygienic cooking process.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="section-title">
+      <h2>Food Gallery</h2>
+      <p>Some delicious moments from our kitchen</p>
+    </div>
+
+    <div class="gallery">
+      <img src="../IMG/cs.avif" alt="Food 1">
+      <img src="../IMG/ki.avif" alt="Food 2">
+      <img src="../IMG/ph.avif" alt="Food 3">
+      <img src="../IMG/ot.avif" alt="Food 4">
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-title">
+      <h2>Contact Us</h2>
+      <p>Book your table now</p>
+    </div>
+
+    <div class="contact-container">
+
+      <div>
+        <h3 style="font-size:32px; margin-bottom:20px;">Visit Our Restaurant</h3>
+        <p style="line-height:1.8; color:#555;">
+          📍 Ratapur, Raebareli <br><br>
+          📞 +91 8563928511 <br><br>
+          📧 foodieshaven77@email.com
+        </p>
+      </div>
+
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>                        </p>
+    <section id="testimonials" style="background:#fff3df;">
+    <div class="section-title">
+      <h2>Customer Reviews</h2>
+      <p>What our customers say about us</p>
+    </div>
+
+    <div class="service-boxes">
+      <div class="service-box" style="background:white; color:#111;">
+        <h3>⭐⭐⭐⭐⭐</h3>
+        <p>"Amazing food and wonderful service. Best restaurant experience ever!"</p>
+        <strong>- Rahul</strong>
+      </div>
+
+      <div class="service-box" style="background:white; color:#111;">
+        <h3>⭐⭐⭐⭐⭐</h3>
+        <p>"The pizza and pasta were delicious. Highly recommended."</p>
+        <strong>- Priya</strong>
+      </div>
+
+      <div class="service-box" style="background:white; color:#111;">
+        <h3>⭐⭐⭐⭐⭐</h3>
+        <p>"Beautiful atmosphere with quick delivery and quality food."</p>
+        <strong>- Aman</strong>
+      </div>
+    </div>
+  </section>
+
+ 
+
+  <section style="background:#111; color:white; text-align:center;">
+    <h2 style="font-size:45px; margin-bottom:20px;">Special Offer</h2>
+    <p style="font-size:20px; margin-bottom:30px;">
+      Get 30% OFF on your first online order.
+    </p>
+    <a  href="../HTML/order.html" class="btn">Order Now</a>
+  </section>
+
+  <footer>
+    <p>© 2026 Foodies Haven Restaurant | All Rights Reserved</p>
+    <p style="margin-top:10px;">Follow Us On</p>
+    <div style="margin-top:10px;">
+      <span style="margin:0 10px;">📘 Facebook</span>
+      <span style="margin:0 10px;">📸 Instagram</span>
+      <span style="margin:0 10px;">🐦 Twitter</span>
+    </div>
+  </footer>
+
+</body>
+</html>
